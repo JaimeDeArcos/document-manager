@@ -1,0 +1,25 @@
+[project]
+name = "document-manager"
+version = "0.1.0"
+description = "Ask local PDFs questions and inspect page-level sources"
+readme = "README.md"
+requires-python = ">=3.11,<3.15"
+dependencies = [
+  "chromadb>=1.3,<2",
+  "ollama>=0.6,<1",
+  "pymupdf4llm>=0.2,<1",
+  "streamlit>=1.45,<2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/document_manager"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
